@@ -1,17 +1,19 @@
 class Solution {
     public int numPairsDivisibleBy60(int[] time) {
-        Map<Integer, Integer> remainderCounts = new HashMap<>();
-        int validPairs = 0;
-        
-        for (int songLength : time) {
-            int currentRemainder = songLength % 60;
-            int neededRemainder = (currentRemainder == 0) ? 0 : 60 - currentRemainder;
-            
-            validPairs += remainderCounts.getOrDefault(neededRemainder, 0);
-            remainderCounts.put(currentRemainder, remainderCounts.getOrDefault(currentRemainder, 0) + 1);
+        int [] rC=new int[60];
+        int vp=0;
+        for(int i:time){
+            int c=i%60;
+            if(c==0){
+                vp+=rC[0];
+
+            }else{
+                int neededR=60-c;
+                vp+=rC[neededR];
+            }
+            rC[c]++;
         }
-        
-        return validPairs;
+        return vp;
        
         
         
