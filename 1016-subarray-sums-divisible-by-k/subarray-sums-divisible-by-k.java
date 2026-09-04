@@ -7,8 +7,9 @@ class Solution {
         for (int i : nums) {
             s += i;
             int r = s % k;
-            if (r < 0)
+            if (r < 0){
                 r += k;
+            }
             c += ps[r];
             ps[r]++;
         }
