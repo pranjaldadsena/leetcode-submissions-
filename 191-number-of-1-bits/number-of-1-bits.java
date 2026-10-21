@@ -1,14 +1,10 @@
 class Solution {
-    public int div(int n){
-        if(n==0){
-          
-            return 0;
-        }
-        
-        return(n%2!=0?1:0)+div(n/2);
-    }
     public int hammingWeight(int n) {
-        return div(n);
-        
+        int cnt = 0;
+        while (n != 0) {
+            n = n & (n - 1);
+            cnt++;
+        }
+        return cnt; 
     }
 }
