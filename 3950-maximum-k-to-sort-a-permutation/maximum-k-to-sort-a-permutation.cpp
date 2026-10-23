@@ -5,6 +5,6 @@ public:
         for(int i=0; i<nums.size(); i++){
             if(nums[i] != i) k &=nums[i];
         }
-        return (k == ~0)?0 : k;
+        return max(k, 0);
     }
 };
